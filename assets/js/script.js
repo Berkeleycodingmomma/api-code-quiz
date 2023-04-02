@@ -29,10 +29,24 @@ let quizContainer = document.getElementById("quiz-container");
 let scoreContainer = document.getElementById("score-container");
 let highContainer = document.getElementById("high-score-container");
 let startButton = document.getElementById("start-button");
+let timer = document.querySelector(".timer");
 let questionOption;
 let questionNumber = 0;
 let quizStart;
 let score = 0;
+let timerCount = 10
+
+const startTimer = () => {
+    countdown = setInterval(() => {
+        timerCount--;
+        timer.innerHTML = `${timerCount}s`;
+        if (timerCount == 0) {
+            clearInterval(countdown);
+            quizContainer.classList.add("hide")
+            scoreContainer.classList.remove("hide")
+        }
+    }, 1000);
+};
 
 
 function nextQuestion(questionNumber) {
@@ -46,10 +60,12 @@ function nextQuestion(questionNumber) {
 }
 
 function checkAnswer(answerClicked) {
-   answerClicked = answerClicked.innerText
-   if (answerClicked == questions[questionNumber].right_answer) {
-    score++
-   }
+    answerClicked = answerClicked.innerText
+    if (answerClicked == questions[questionNumber].right_answer) {
+        score++
+    } else {
+        timerCount = timerCount - 5
+    }
     questionNumber += 1;
     if (questionNumber == questions.length) {
         quizContainer.classList.add("hide")
@@ -73,10 +89,7 @@ function startQuiz() {
 
         console.log(i.answers)
         for (let x = 0; x < i.answers.length; x++) {
-            console.log(x)
-            questionCard.innerHTML += `
-            <button id="question-option" class="option-div" onclick="checkAnswer(this)">${i.answers[x]}</button>
-            `;
+            questionCard.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${i.answers[x]}</button>`;
         }
         quizContainer.appendChild(questionCard);
     }
@@ -86,7 +99,7 @@ startButton.addEventListener("click", () => {
     startContainer.classList.add("hide")
     quizContainer.classList.remove("hide")
     quizStart = true
-    // start timer function
     startQuiz();
     nextQuestion(0);
+    startTimer();
 });
