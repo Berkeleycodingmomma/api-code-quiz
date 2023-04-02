@@ -24,7 +24,7 @@ const questions = [{
     },
 ]
 
-let scores = []
+let scores = [];
 
 let startContainer = document.getElementById("start-container");
 let quizContainer = document.getElementById("quiz-container");
@@ -58,16 +58,19 @@ tryAgain.addEventListener("click", () => {
 
 clearScores.addEventListener("click", () => {
     scores = []
+    localStorage.clear();
     scoresListContainer.innerHTML = ''
 });
 
 function displayHighScores() {
-    for (let i = 0; i < scores.length; i++) {
+    let storedScores = JSON.parse(localStorage.getItem("scores"))
+    storedScores.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
+    for (let i = 0; i < storedScores.length; i++) {
         let scoresCard = document.createElement("div");
         scoresCard.classList.add("scores-card");
         scoresCard.innerHTML += `
-                <span>${scores[i].name}</span>
-                <span>${scores[i].score}</span>
+                <span>${storedScores[i].name}</span>
+                <span>${storedScores[i].score}</span>
         `;
         scoresListContainer.appendChild(scoresCard);
     }
@@ -82,6 +85,7 @@ submitButton.addEventListener("click", () => {
     document.getElementById('score-input').value = ""
     scoreContainer.classList.add("hide")
     highScoreContainer.classList.remove("hide")
+    localStorage.setItem("scores", JSON.stringify(scores))
     displayHighScores()
     reset()
 });
@@ -155,3 +159,7 @@ startButton.addEventListener("click", () => {
     nextQuestion(0);
     startTimer();
 });
+
+window.onload = () => {
+	scores = JSON.parse(localStorage.getItem("scores"))
+};
