@@ -24,17 +24,36 @@ const questions = [{
     },
 ]
 
+const scores = []
+
 let startContainer = document.getElementById("start-container");
 let quizContainer = document.getElementById("quiz-container");
 let scoreContainer = document.getElementById("score-container");
 let highContainer = document.getElementById("high-score-container");
 let startButton = document.getElementById("start-button");
+let submitButton = document.getElementById("submit-button");
+let finalScore = document.getElementById("final-score");
 let timer = document.querySelector(".timer");
 let questionOption;
 let questionNumber = 0;
 let quizStart;
 let score = 0;
-let timerCount = 10
+let timerCount = 20
+let countdown;
+
+submitButton.addEventListener("click", () => {
+   let name = document.getElementById('score-input').value
+   scores.push({
+    "name": name,
+    "score": score
+   })
+   console.log(scores)
+});
+
+
+function displayScore() {
+    finalScore.innerHTML = "Your score is " + score + " out of " + questionNumber;
+}
 
 const startTimer = () => {
     countdown = setInterval(() => {
@@ -44,15 +63,15 @@ const startTimer = () => {
             clearInterval(countdown);
             quizContainer.classList.add("hide")
             scoreContainer.classList.remove("hide")
+            displayScore()
         }
     }, 1000);
 };
 
-
 function nextQuestion(questionNumber) {
     quizStart = false;
     console.log("questNum", questionNumber)
-    let questionCard = document.querySelectorAll(".container_mid");
+    let questionCard = document.querySelectorAll(".question-card");
     questionCard.forEach((card) => {
         card.classList.add("hide");
     });
@@ -70,6 +89,8 @@ function checkAnswer(answerClicked) {
     if (questionNumber == questions.length) {
         quizContainer.classList.add("hide")
         scoreContainer.classList.remove("hide")
+        clearInterval(countdown);
+        displayScore()
     } else {
         nextQuestion(questionNumber)
     }
@@ -79,15 +100,13 @@ function checkAnswer(answerClicked) {
 function startQuiz() {
     for (let i of questions) {
         let questionCard = document.createElement("div");
-        questionCard.classList.add("container_mid");
+        questionCard.classList.add("question-card");
 
-        let question_DIV = document.createElement("p");
-        question_DIV.classList.add("question");
-        question_DIV.innerHTML = i.question;
+        let question = document.createElement("p");
+        question.classList.add("question");
+        question.innerHTML = i.question;
+        questionCard.appendChild(question);
 
-        questionCard.appendChild(question_DIV);
-
-        console.log(i.answers)
         for (let x = 0; x < i.answers.length; x++) {
             questionCard.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${i.answers[x]}</button>`;
         }
