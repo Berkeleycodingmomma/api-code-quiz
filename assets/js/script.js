@@ -25,7 +25,14 @@ const questions = [
     },
 ]
 
-let startContainer = document.querySelector(".start-container");
-let quizContainer = document.querySelector(".quiz-container");
-let scoreContainer = document.querySelector(".score-container");
-let highContainer = document.querySelector(".high-score-container");
+let startContainer = document.getElementById("start-container");
+let quizContainer = document.getElementById("quiz-container");
+let scoreContainer = document.getElementById("score-container");
+let highContainer = document.getElementById("high-score-container");
+let startButton = document.getElementById("start-button");
+
+startButton.addEventListener("click", () => {
+	startContainer.classList.add("hide")
+    quizContainer.classList.remove("hide")
+    // start timer function
+});
