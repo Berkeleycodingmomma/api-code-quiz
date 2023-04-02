@@ -25,3 +25,7 @@ const questions = [
     },
 ]
 
+let startContainer = document.querySelector(".start-container");
+let quizContainer = document.querySelector(".quiz-container");
+let scoreContainer = document.querySelector(".score-container");
+let highContainer = document.querySelector(".high-score-container");

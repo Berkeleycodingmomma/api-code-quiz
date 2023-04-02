@@ -46,3 +46,8 @@ footer {
     border: solid 2px white;
     width: 100%;
 }
+
+.hide {
+    display: none;
+}
+
