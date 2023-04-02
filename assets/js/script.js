@@ -24,15 +24,18 @@ const questions = [{
     },
 ]
 
-const scores = []
+let scores = []
 
 let startContainer = document.getElementById("start-container");
 let quizContainer = document.getElementById("quiz-container");
 let scoreContainer = document.getElementById("score-container");
-let highContainer = document.getElementById("high-score-container");
+let highScoreContainer = document.getElementById("high-score-container");
 let startButton = document.getElementById("start-button");
 let submitButton = document.getElementById("submit-button");
 let finalScore = document.getElementById("final-score");
+let scoresListContainer = document.getElementById("scores-list-container");
+let clearScores = document.getElementById("clear-scores");
+let tryAgain = document.getElementById("try-again");
 let timer = document.querySelector(".timer");
 let questionOption;
 let questionNumber = 0;
@@ -41,15 +44,47 @@ let score = 0;
 let timerCount = 20
 let countdown;
 
-submitButton.addEventListener("click", () => {
-   let name = document.getElementById('score-input').value
-   scores.push({
-    "name": name,
-    "score": score
-   })
-   console.log(scores)
+function reset() {
+    score = 0;
+    timerCount = 20;
+    questionNumber = 0;
+}
+
+tryAgain.addEventListener("click", () => {
+    highScoreContainer.classList.add("hide")
+    startContainer.classList.remove("hide")
+    scoresListContainer.innerHTML = '';
 });
 
+clearScores.addEventListener("click", () => {
+    scores = []
+    scoresListContainer.innerHTML = ''
+});
+
+function displayHighScores() {
+    for (let i = 0; i < scores.length; i++) {
+        let scoresCard = document.createElement("div");
+        scoresCard.classList.add("scores-card");
+        scoresCard.innerHTML += `
+                <span>${scores[i].name}</span>
+                <span>${scores[i].score}</span>
+        `;
+        scoresListContainer.appendChild(scoresCard);
+    }
+}
+
+submitButton.addEventListener("click", () => {
+    let name = document.getElementById('score-input').value
+    scores.push({
+        "name": name,
+        "score": score
+    })
+    document.getElementById('score-input').value = ""
+    scoreContainer.classList.add("hide")
+    highScoreContainer.classList.remove("hide")
+    displayHighScores()
+    reset()
+});
 
 function displayScore() {
     finalScore.innerHTML = "Your score is " + score + " out of " + questionNumber;
@@ -70,7 +105,6 @@ const startTimer = () => {
 
 function nextQuestion(questionNumber) {
     quizStart = false;
-    console.log("questNum", questionNumber)
     let questionCard = document.querySelectorAll(".question-card");
     questionCard.forEach((card) => {
         card.classList.add("hide");
@@ -94,7 +128,6 @@ function checkAnswer(answerClicked) {
     } else {
         nextQuestion(questionNumber)
     }
-    console.log("score", score)
 }
 
 function startQuiz() {
