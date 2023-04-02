@@ -1,9 +1,10 @@
 body {
-	background-color: #0a69ed;
+	background-color: #393d40;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 80vh;
 }
 
 header {
@@ -12,39 +13,109 @@ header {
     justify-content: space-between;
     align-items: center;
     border: solid 2px white;
-    width: 100%;
+    width: 80%;
     margin-bottom: 10px;
+    background-color: #dcbc2e;
+    color: #393d40;
+    padding: 10px;
+}
+
+.timer {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 main {
     border: solid 2px white;
-    width: 100%;
+    width: 80%;
     margin-bottom: 10px;
+    background-color: #dcbc2e;
+    color: #393d40;
+    padding: 10px;
 }
 
 footer {
     border: solid 2px white;
+    width: 80%;
+    background-color: #dcbc2e;
+    color: #393d40;
+    padding: 10px;
+}
+
+.start-container {
+    /* border: solid 2px white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
-.start-screen {
-    border: solid 2px white;
+.start-container h1 {
+    margin-block-end: 0;
+}
+
+.question-card {
+    /* border: solid 2px white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
     width: 100%;
 }
 
-.quiz-wrap {
-    border: solid 2px white;
-    width: 100%;
+.question-card p {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .score-container {
-    border: solid 2px white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     width: 100%;
+}
+.score-container h1 {
+    margin-block-end: 0;
 }
 
 .high-score-container {
-    border: solid 2px white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     width: 100%;
+}
+
+.high-score-container h1 {
+    margin-block-end: 0;
+}
+
+.scores-list-container {
+    width: 20%;
+}
+
+.scores-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.button-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 .hide {

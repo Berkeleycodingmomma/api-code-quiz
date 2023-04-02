@@ -1,26 +1,32 @@
 const questions = [{
         "id": 0,
-        "question": "Question 1",
-        "answers": ["Answer - 1", "Answer - 2", "Answer - 3", "Answer - 4"],
-        "right_answer": "Answer - 1"
+        "question": "[ ] brackets are wrapped around what?",
+        "answers": ["Objects", "Arrays", "Strings", "JSON"],
+        "right_answer": "Arrays"
     },
     {
         "id": 1,
-        "question": "Question 2",
-        "answers": ["Answer - 1", "Answer - 2", "Answer - 3", "Answer - 4"],
-        "right_answer": "Answer - 2"
+        "question": "{ } brackets are wrapped around what?",
+        "answers": ["Objects", "Arrays", "Strings", "JSON"],
+        "right_answer": "Objects"
     },
     {
         "id": 2,
-        "question": "Question 3",
-        "answers": ["Answer - 1", "Answer - 2", "Answer - 3"],
-        "right_answer": "Answer - 3"
+        "question": "Array.push() adds items to an array",
+        "answers": ["True", "False"],
+        "right_answer": "True"
     },
     {
         "id": 3,
-        "question": "Question 4",
-        "answers": ["Answer - 1", "Answer - 2", "Answer - 3", "Answer - 4"],
-        "right_answer": "Answer - 4"
+        "question": "If you want to iterate through an array, what would you use?",
+        "answers": ["An If Statement", "Bracket Notation", "For Loop", "A Conditional", "An Array Iterate"],
+        "right_answer": "For Loop"
+    },
+    {
+        "id": 4,
+        "question": "== and != are expamples of?",
+        "answers": ["An If Statement", "Bracket Notation", "For Loop", "A Conditional", "An Array Iterate"],
+        "right_answer": "A Conditional"
     },
 ]
 
@@ -69,8 +75,10 @@ function displayHighScores() {
         let scoresCard = document.createElement("div");
         scoresCard.classList.add("scores-card");
         scoresCard.innerHTML += `
-                <span>${storedScores[i].name}</span>
+            <div>
+                <span>${storedScores[i].name + ":" + " "}</span>
                 <span>${storedScores[i].score}</span>
+            </div>
         `;
         scoresListContainer.appendChild(scoresCard);
     }
@@ -91,13 +99,13 @@ submitButton.addEventListener("click", () => {
 });
 
 function displayScore() {
-    finalScore.innerHTML = "Your score is " + score + " out of " + questionNumber;
+    finalScore.innerHTML = "Your score is " + score;
 }
 
 const startTimer = () => {
     countdown = setInterval(() => {
         timerCount--;
-        timer.innerHTML = `${timerCount}s`;
+        timer.innerHTML = `Timer: ${timerCount}s`;
         if (timerCount == 0) {
             clearInterval(countdown);
             quizContainer.classList.add("hide")
@@ -161,5 +169,10 @@ startButton.addEventListener("click", () => {
 });
 
 window.onload = () => {
-	scores = JSON.parse(localStorage.getItem("scores"))
+    let scoresFromStorage = JSON.parse(localStorage.getItem("scores"))
+    if (scoresFromStorage) {
+        scores = scoresFromStorage
+    } else {
+        scores = []
+    }
 };

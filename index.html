@@ -20,25 +20,28 @@
     <main>
         <!-- each screen should hide when not in use -->
         <div id="start-container" class="start-container">
-            <h1>Start Screen</h1>
+            <h1>Coding Quiz</h1>
+            <p>Good luck on your quiz! But be careful answering wrong will subtract time from your timer...</p>
             <button id="start-button">Start</button>
         </div>
         <div id="quiz-container" class="quiz-container hide">
             
         </div>
         <div id="score-container" class="score-container hide">
-            <h1>Score and Initials</h1>
+            <h1>All Done!</h1>
             <span id="final-score" class="score"></span>
-            <input id="score-input" type="text">
+            <input id="score-input" type="text" placeholder="Enter Your Initials">
             <button id="submit-button">Submit</button>
         </div>
         <div id="high-score-container" class="high-score-container hide">
             <h1>High Scores</h1>
-            <div id="scores-list-container">
+            <div id="scores-list-container" class="scores-list-container">
 
             </div>
-            <button id="try-again">Try Again</button>
-            <button id="clear-scores">Clear HighScores</button>
+            <div class="button-wrap">
+                <button id="try-again">Try Again</button>
+                <button id="clear-scores">Clear HighScores</button>
+            </div>
         </div>
     </main>
     <!-- footer will remain at botton -->
