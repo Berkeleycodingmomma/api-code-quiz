@@ -37,7 +37,9 @@ I created an application where a user can take a timed quiz by the pushing the s
     }
 ```
 
-**(ABOVE)- 
+**(ABOVE)- I learned that the JSON.parse method converts a JSON string into a javaScript object (or an array), but there’s room to transform that data at the same time. It allows a server to efficiently store data that can then be easily converted into the user interface by converting it back to JavaScript.
+
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 ```sh
@@ -54,7 +56,7 @@ I created an application where a user can take a timed quiz by the pushing the s
     }, 1000);
 ```
 
-**(ABOVE)-
+**(ABOVE)- I figured out that using the innerHTML property, it can set or return the HTML content (inner HTML) of an element.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 ```sh
@@ -74,7 +76,7 @@ function displayHighScores() {
     }
 }
 ```
-**(ABOVE)-  
+**(ABOVE)- Here I figured out that the parseFloat() method parses its first argument to a string and returns the first number.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 ```sh
@@ -85,7 +87,7 @@ function displayHighScores() {
         "right_answer": "A Conditional"
     },
 ```
-**(ABOVE)- 
+**(ABOVE)- This is an example of an id element where I have a question to be asked. Below that I have an array of four possible answers. If the user chooses "A conditional", that will be recognozed as the right answer. 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Author Info
