@@ -1,4 +1,5 @@
-const questions = [{
+const questions = [
+    {
         "id": 0,
         "question": "[ ] brackets are wrapped around what?",
         "answers": ["Objects", "Arrays", "Strings", "JSON"],
@@ -45,7 +46,6 @@ let tryAgain = document.getElementById("try-again");
 let timer = document.querySelector(".timer");
 let questionOption;
 let questionNumber = 0;
-let quizStart;
 let score = 0;
 let timerCount = 20
 let countdown;
@@ -90,7 +90,7 @@ function displayHighScores() {
 
 // adds score object to scores array and local storage - then opens high scores container
 submitButton.addEventListener("click", () => {
-    let name = document.getElementById('score-input').value
+    let name = document.getElementById("score-input").value
     scores.push({
         "name": name,
         "score": score
@@ -125,7 +125,6 @@ const startTimer = () => {
 
 // initiates next question
 function nextQuestion(questionNumber) {
-    quizStart = false;
     let questionCard = document.querySelectorAll(".question-card");
     questionCard.forEach((card) => {
         card.classList.add("hide");
@@ -174,7 +173,6 @@ function startQuiz() {
 startButton.addEventListener("click", () => {
     startContainer.classList.add("hide")
     quizContainer.classList.remove("hide")
-    quizStart = true
     startQuiz();
     nextQuestion(0);
     startTimer();
