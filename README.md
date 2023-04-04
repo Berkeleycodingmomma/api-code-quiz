@@ -99,8 +99,7 @@ function displayHighScores() {
 
 * [LinkedIn](https://www.linkedin.com/in/amanda-gray-831a65254/)
 
-* [Deployed Application link](
-```
+* [Deployed Application link](https://berkeleycodingmomma.github.io/api-code-quiz/)
 
 ## Credits
 
