@@ -9,18 +9,21 @@ Creating a Web APIs Challenge Code Quiz
 
 Wrapping javaScript functions: https://www.chainshot.com/article/wrapping-functions
 
-Researching for my questions: https://stackoverflow.com/questions/351409/how-to-append-something-to-an-array
+Researching: https://stackoverflow.com/questions/351409/how-to-append-something-to-an-array
 
 Understanding timer.innerhtml: https://www.w3schools.com/jsref/prop_html_innerhtml.asp
 
 Local storage in javaScript: https://www.makeuseof.com/localstorage-javascript/
+
+Google free back-ground image search: https://lh3.googleusercontent.com/AxNH1OPwLn8uEU-J6-EgbDtdlHzo71vALcVR3Jv5wOrYnZBJrJUEuuK8kxBqK7mWKTG1ooWlAQ7fQWIN-SSJtX82vEtCfhJeMwRMmw7BwQ
+
 
 
 
 ## Description 
 I created an application where a user can take a timed quiz by the pushing the start button. The timer starts as the user is presented with the first out of four questions. When answered incorectly, time is subtracted from the clock. When all the answers are answered or the timer runs out, the quiz game is over. The user then inputs their initials and saves their score. The highest score is announced and the user will have the option to try again and/or clear high scores.
 
- <img src="./assets/css/Screen Shot 2023-04-03 at 12.12.36 AM.png" alt="screen-shot">
+ <img src="./assets/images/Screen Shot 2023-04-03 at 5.56.37 PM.png" alt="screen-shot">
 
 ## Web APIs Challenge Code Quiz, Code examples
 
@@ -76,7 +79,7 @@ function displayHighScores() {
     }
 }
 ```
-**(ABOVE)- Here I figured out that the parseFloat() method parses its first argument to a string and returns the first number.
+**(ABOVE)- Here I figured out that the parseFloat() method parses its first argument to a string and returns the first number. I also learned the syntax for adding code inside a string
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 ```sh
@@ -87,7 +90,7 @@ function displayHighScores() {
         "right_answer": "A Conditional"
     },
 ```
-**(ABOVE)- This is an example of an id element where I have a question to be asked. Below that I have an array of four possible answers. If the user chooses "A conditional", that will be recognozed as the right answer. 
+**(ABOVE)- This is an example of an object where I have a question to be asked. Below that I have an array of four possible answers. If the user chooses "A conditional", that will be recognozed as the right answer. 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Author Info
@@ -96,7 +99,7 @@ function displayHighScores() {
 
 * [LinkedIn](https://www.linkedin.com/in/amanda-gray-831a65254/)
 
-* [Deployed Application link]
+* [Deployed Application link](
 ```
 
 ## Credits
